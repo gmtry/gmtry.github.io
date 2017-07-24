@@ -1,0 +1,42 @@
+.doctag {
+    margin-top: 3rem;
+}
+
+.doctag-link {
+    text-decoration: none;
+}
+
+.doctag-version {
+    list-style-type: none;
+}
+
+.doctag-versionLabel {
+    color: #808080;
+}
+
+.doctag-versionValue {
+    color: #B3B3B3;
+}
+
+.doctag-tags {
+    margin-top: 1rem;
+    list-style-type: none;
+}
+
+.doctag-tag {
+    display: inline-block;
+    @include border-radius(.16rem);
+    border-color: 1px solid rgba(0,0,0,0.25);
+    padding: 2px 4px;
+    margin-bottom: .5rem;
+}
+
+.doctag-tag--available {
+    color: rgba(0,0,0,.9);
+    background-color: #C4C4C4;
+}
+
+.doctag-tag--unavailable {
+    color: rgba(0,0,0,.4);
+    background-color: #D6D6D6;
+}

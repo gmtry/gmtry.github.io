@@ -1,0 +1,7 @@
+
+# List of documentation categories used to generate table of content for the documentation section
+- slug: getting-started
+  name: Getting Started
+
+- slug: basics
+  name: Basics

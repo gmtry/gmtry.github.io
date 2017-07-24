@@ -1,0 +1,22 @@
+<!-- Thanks to https://stackoverflow.com/questions/17118551/ for this code -->
+
+<div class="doctoc">
+    {% for cat in site.data.docs-category-list %}
+    <div class="doctoc-section">
+        <h1 class="doctoc-heading">{{ cat.name }}</h1>
+        <ul class="doctoc-list">
+            {% for doc in site.docs | sort: 'chapter' %}
+                {% if doc.documentation == true %}
+                    {% for dc in doc.categories %}
+                        {% if dc == cat.slug %}
+                            <li class="doctoc-item"><a class="doctoc-link" href="{{ doc.url }}">{{ doc.title }}</a></li>
+                        {% endif %}
+                    {% endfor %}
+                {% endif %}
+            {%endfor %}
+        </ul>
+    </div>
+    {% endfor %}
+</div>
+
+{% include doctag.html %}

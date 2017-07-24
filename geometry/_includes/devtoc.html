@@ -1,0 +1,20 @@
+<!-- Thanks to https://stackoverflow.com/questions/17118551/ for this code -->
+
+<div class="doctoc">
+    {% for cat in site.data.developer-category-list %}
+    <div class="doctoc-section">
+        <h1 class="doctoc-heading">{{ cat.name }}</h1>
+        <ul class="doctoc-list">
+            {% for devdoc in site.developer | sort: 'chapter' %}
+                {% if devdoc.documentation == true %}
+                    {% for dc in devdoc.categories %}
+                        {% if dc == cat.slug %}
+                            <li class="doctoc-item"><a class="doctoc-link" href="{{ devdoc.url }}">{{ devdoc.title }}</a></li>
+                        {% endif %}
+                    {% endfor %}
+                {% endif %}
+            {%endfor %}
+        </ul>
+    </div>
+    {% endfor %}
+</div>

@@ -1,0 +1,31 @@
+.footer {
+    color: #B3B3B3;
+    padding: {
+        top: 3rem;
+        bottom: 3rem;
+    }
+}
+
+.footer-menu {
+    list-style-type: none;
+    text-align: center;
+}
+
+.footer-menuItem {
+    display: inline-block;
+    margin-right: 1rem;
+}
+
+
+.footer-menuLink {
+    text-decoration: none;
+    color: #999999;
+}
+
+.footer-menuLink:hover {
+    color: #808080;
+}
+
+.footer-menuItem--separator::before {
+    content: "\00B7";
+}

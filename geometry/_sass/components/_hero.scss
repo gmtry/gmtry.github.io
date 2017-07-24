@@ -1,0 +1,50 @@
+.hero {
+    background-color: #2C325E;
+    background-color: #606480;
+    background-color: #B8BBCC;
+    background-color: #14172B;
+    background: linear-gradient(180deg, #14172B, #14172B);
+}
+
+.hero-inner {
+    padding: {
+        top: 200px;
+        bottom: 200px;
+    }
+    text-align: center;
+}
+
+.hero-title {
+    color: #14172B;
+    color: #8D90A6;
+    color: #A3A6BF;
+    color: #595E80;
+    color: #7A7E99;
+    color: #7A7E99;
+    font-size: 2.25rem;
+    font-weight: 800;
+}
+
+.hero-tagline {
+    color: #3D425E;
+    color: #595E80;
+    font-size: 1.5rem;
+    margin-top: .5rem;
+}
+
+.hero-button {
+    background-color: #98D9B3;
+    background-color: #62B384;
+    background-color: #85CCA2;
+    background-color: #62B384;
+    background-color: #62B384;
+    color: rgba(255,255,255,0.75);
+    font-size: 1.25rem;
+    font-weight: bold;
+    height: 60px;
+    line-height: 64px;
+    padding: 0px 1.75rem;
+    word-wrap: nowrap;
+    display: inline-block;
+    margin-top: 1.5rem;
+}

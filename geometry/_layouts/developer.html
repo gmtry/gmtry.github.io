@@ -1,0 +1,126 @@
+{% include globals.html %}
+
+{% comment %}
+    PREAMBLE: This code is placed before the HTML in order to pull the page
+    title for it to be displayed in the <title> tag in the <head>.
+
+    If this page uses an index, we shall locate it and
+    display it; otherwise if this page does not use
+    an index, we assume that this page is a normal
+    document and display its contents normally.
+
+    To know whether this page uses an index or not,
+    we must check the page's front matter for some
+    values that give us all the information we need
+    to identify the index file.
+
+    We shall check for the following values:
+
+    - index: a boolean value
+    - index-tag: the tag under which the desired index
+      page is tagged
+    - index-path: relative path to the index
+
+    This is how we check them
+
+    1. If `page.index` is set to TRUE then this indicates
+    that the current page wishes to use an index.
+
+    2. For each doc in the `docs` collections search
+    each for the tag specified by the `page.index-tag`
+    value.
+
+    3. If found, compare the ID of the file within
+    which the tag was found to a string concatenation of
+    the "/docs" + page.index-tag + page.index-path.
+
+    3. If equal, display the markdown render of the
+    current doc.
+
+{% if page.index == true %}
+    {% for doc in site.developer %}
+        {% for dt in doc.tags %}
+            {% if page.index-tag == dt %}
+                {% assign index-id = "/developer/" | append: page.index-tag | append: "/" | append: page.index-path %}
+                {% if index-id == doc.id %}
+                    {% assign page.title = doc.title %}
+                    <h1 class="content-title">{{ doc.title }}</h1>
+                    {{ doc.content | markdownify }}
+                    {% assign done = true %}
+                    {% break %}
+                {% endif %}
+            {% endif %}
+            {% if done == true %}
+                {% break %}
+            {% endif %}
+        {% endfor %}
+        {% if done == true %}
+            {% break %}
+        {% endif %}
+    {% endfor %}
+{% else %}
+    <h1 class="content-title">{{ page.title }}</h1>
+    {{ content }}
+{% endif %}
+
+
+{% endcomment %}
+
+
+{% comment %}
+    See "_includes/docs.html"
+{% endcomment %}
+
+{% if page.index == true %}
+    {% for devdoc in site.developer %}
+        {% assign index-page-id = "/developer/" | append: page.index-path %}
+        {% if index-page-id == devdoc.id %}
+            {% assign page-title = devdoc.title %}
+            {% assign page-content = devdoc.content | markdownify %}
+            {% assign page-id = devdoc.id %}
+            {% assign done = true %}
+            {% break %}
+        {% endif %}
+        {% if done == true %}
+            {% break %}
+        {% endif %}
+    {% endfor %}
+{% else %}
+    {% assign page-title = page.title %}
+    {% assign page-content = content %}
+    {% assign page-id = page.id %}
+{% endif %}
+
+<!DOCTYPE html>
+
+    {% include head.html %}
+
+    <body>
+
+        {% include header.html %}
+
+        <div class="section">
+            <div class="container">
+                <div class="grid">
+                    <div class="grid-row">
+                        <div class="grid-col3">
+
+                            {% include devtoc.html %}
+
+                        </div>
+                        <div class="grid-col9">
+                            <div class="content">
+                                <h1 class="content-title">{{ page-title }}</h1>
+                                {{ page-content }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        {% include footer.html %}
+
+    </body>
+
+</html>

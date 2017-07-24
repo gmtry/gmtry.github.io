@@ -1,0 +1,83 @@
+.content {
+
+}
+
+.content > #markdown-toc {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.content > #markdown-toc > li {
+
+}
+
+.content > #markdown-toc a {
+    text-decoration: none;
+}
+
+.content > #markdown-toc li {
+    margin-bottom: .5rem;
+}
+
+.content h1.content-title {
+    color: grey;
+    font-size: 2.5rem;
+    margin-top: 2.5rem;
+    margin-bottom: 2.5rem;
+}
+
+.content h1 {
+    font-size: 1.75rem;
+    margin: {
+        top: 1rem;
+        bottom: 1rem;
+    }
+}
+
+.content h2 {
+    font-size: 1.75rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
+
+.content h3 {
+    font-size: 1.25rem;
+    margin-top: 1.50rem;
+    margin-bottom: 1rem;
+}
+
+.content h4 {
+    font-size: 1rem;
+    margin-top: 1.25rem;
+    margin-bottom: 1rem;
+}
+
+.content h5 {
+    font-size: .9rem;
+    margin-top: .9rem;
+    margin-bottom: .45rem;
+}
+
+.content h6 {
+    font-size: .8rem;
+    margin-top: .8rem;
+    margin-bottom: .4rem;
+}
+
+.content ol, .content ul {
+    margin-left: 3rem;
+    margin-bottom: 1.25rem;
+}
+
+.content ol > li, .content ul > li {
+    margin-bottom: 1rem;
+}
+
+.content p {
+    font-size: 1.05rem;
+    margin-bottom: 1.25rem;
+    margin-top: 1rem;
+}
+
+.content pre { }

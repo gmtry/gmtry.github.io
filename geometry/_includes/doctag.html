@@ -1,0 +1,29 @@
+{% assign page-url-parts = page-id | split: "/" %}
+
+<div class="doctag">
+    <ul class="doctag-version">
+        <li class="doctag-versionLabel">Documentation version:</li>
+        {% assign has-tag-version = false %}
+        {% for tag in site.data.tags %}
+            {% if tag.slug == page-url-parts[2] %}
+                <li class="doctag-versionValue">{{ tag.name }}</li>
+                {% assign has-tag-version = true %}
+                {% break %}
+            {% endif %}
+        {% endfor %}
+        {% if has-tag-version == false %}
+            <li class="doctag-versionValue">Could not find version</li>
+        {% endif %}
+    </ul>
+    <ul class="doctag-tags">
+        {% for tag in site.data.tags %}
+            {% if page-url-parts[2] == tag.slug %}
+                {% assign page-url-parts[2] = tag.slug %}
+                <a class="doctag-link" href="{{ page-url-parts | join: "/" }}"><li class="doctag-tag doctag-tag--available">{{ tag.name }}</li></a>
+            {% else %}
+                {% assign no-tag-url = '/' | append: page-url-parts[1] | append: '/' | append: tag.slug %}
+                <a class="doctag-link" href="{{ no-tag-url }}"><li class="doctag-tag doctag-tag--unavailable">{{ tag.name }}</li></a>
+            {% endif %}
+        {% endfor %}
+    </ul>
+</div>
